@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kharcha Kitab</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head>
+<body><main>
+<h1>Kharcha Kitab</h1>
+<p class="sub">College ka kharcha, ek jagah. Budget set karo, kharcha likho, dekho kahan ja raha hai.</p>
+
+<section>
+  <p class="big" id="spent">₹0</p>
+  <p class="note" id="status"></p>
+  <div class="bar" style="margin-top:8px"><div id="fill"></div></div>
+  <div class="stats" style="margin-top:14px">
+    <div><b id="avg">-</b>average</div><div><b id="max">-</b>sabse bada</div><div><b id="days">-</b>din chalega</div>
+  </div>
+  <p class="note" id="invest"></p>
+  <div class="row" style="margin-top:10px"><button onclick="setBudget()">Budget badlo</button></div>
+</section>
+
+<section>
+  <h2>Naya kharcha</h2>
+  <div class="row">
+    <input id="title" placeholder="Kis cheez pe? (jaise chai)">
+    <input id="amount" type="number" placeholder="Rupaye">
+  </div>
+  <div class="row" style="margin-top:8px">
+    <select id="category"><option value="food">Khana</option><option value="travel">Safar</option><option value="study">Padhai</option><option value="other">Other</option></select>
+    <input id="tags" placeholder="tags: college, snack">
+    <button onclick="addExpense()">Kharcha jodo</button>
+  </div>
+  <div class="row" style="margin-top:8px">
+    <button class="ghost" onclick="undoLast()">Latest hatao</button>
+    <button class="ghost" onclick="removeOldest()">Sabse purana hatao</button>
+  </div>
+</section>
+
+<section>
+  <h2>Kharcha list</h2>
+  <input id="search" placeholder="Search karo, ya #tag likho" oninput="render()" style="width:100%">
+  <div class="row" style="margin-top:8px">
+    <button class="chip on" data-cat="all" onclick="setCat(this.dataset.cat)">Sab</button>
+    <button class="chip" data-cat="food" onclick="setCat(this.dataset.cat)">Khana</button>
+    <button class="chip" data-cat="travel" onclick="setCat(this.dataset.cat)">Safar</button>
+    <button class="chip" data-cat="study" onclick="setCat(this.dataset.cat)">Padhai</button>
+    <button class="chip" data-cat="other" onclick="setCat(this.dataset.cat)">Other</button>
+  </div>
+  <ul id="list"></ul>
+</section>
+
+<section>
+  <h2>Kahan kitna gaya (★ = budget ka 5%)</h2>
+  <div id="chart"></div>
+  <p class="note" id="first"></p>
+</section>
+</main>
+
+<script src="script.js"></script>
+</body></html>
